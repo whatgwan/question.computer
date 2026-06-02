@@ -49,9 +49,41 @@
     border: 0.5px solid var(--border);
     border-radius: 12px;
     background: var(--surface);
-    padding: 2rem 1.75rem;
     margin-bottom: 3rem;
+    overflow: hidden;
   }
+  .term-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 0.9rem;
+    border-bottom: 0.5px solid var(--border);
+    background: rgba(255, 255, 255, 0.02);
+  }
+  .term-bar .dots { display: inline-flex; gap: 0.4rem; }
+  .term-bar .dots i { width: 10px; height: 10px; border-radius: 50%; background: #3a3a36; }
+  .term-title { font-size: 11px; color: var(--muted); letter-spacing: 0.5px; }
+  .term-body { position: relative; padding: 1.6rem 1.75rem; }
+  /* whisper-faint scanlines over the screen */
+  .term-body::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.022) 0, rgba(255, 255, 255, 0.022) 1px,
+      transparent 1px, transparent 3px
+    );
+  }
+  .cmd {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 0.9rem;
+    overflow-wrap: anywhere;
+  }
+  .cmd:last-of-type { margin-bottom: 0; }
+  .cmd .prompt { color: var(--accent); margin-right: 0.45rem; }
   .label {
     font-size: 11px;
     text-transform: uppercase;
@@ -166,7 +198,13 @@
   </header>
 
   <section class="today" id="today">
-    <p class="empty">Loading…</p>
+    <div class="term-bar">
+      <span class="dots"><i></i><i></i><i></i></span>
+      <span class="term-title">question.computer</span>
+    </div>
+    <div class="term-body" id="today-body">
+      <p class="empty">Loading…</p>
+    </div>
   </section>
 
   <section>
@@ -239,15 +277,16 @@
 
       const entries = data.entries || [];
       if (!entries.length) {
-        document.getElementById("today").innerHTML =
+        document.getElementById("today-body").innerHTML =
           '<p class="empty">No answers yet.</p>';
         return;
       }
 
       const latest = entries[entries.length - 1];
-      document.getElementById("today").innerHTML =
-        '<p class="question">' + esc(latest.question) + '</p>' +
-        '<p class="answer"><span class="typed">' + esc(latest.answer) + '</span><span class="cursor" aria-hidden="true"></span></p>' +
+      document.getElementById("today-body").innerHTML =
+        '<p class="cmd"><span class="prompt">$</span>question-computer --ask "' + esc(latest.question) + '"</p>' +
+        '<p class="answer"><span class="typed">' + esc(latest.answer) + '</span></p>' +
+        '<p class="cmd"><span class="prompt">$</span><span class="cursor" aria-hidden="true"></span></p>' +
         '<p class="date">' + esc(latest.date) +
         (latest.reframed ? ' &middot; <span class="reframed">question reframed</span>' : '') +
         '</p>';
@@ -310,7 +349,7 @@
       statsEl.hidden = false;
     })
     .catch(() => {
-      document.getElementById("today").innerHTML =
+      document.getElementById("today-body").innerHTML =
         '<p class="empty">Could not load data.json.</p>';
     });
 </script>
