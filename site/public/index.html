@@ -67,7 +67,21 @@
   .answer {
     font-size: 19px;
     margin: 0;
+    min-height: 1.7em;
   }
+  .answer .typed { text-shadow: 0 0 14px rgba(93, 202, 165, 0.18); }
+  .cursor {
+    display: inline-block;
+    width: 0.55ch;
+    height: 1.05em;
+    margin-left: 1px;
+    background: var(--accent);
+    vertical-align: -0.16em;
+    box-shadow: 0 0 8px rgba(93, 202, 165, 0.6);
+    animation: blink 1.05s step-end infinite;
+  }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }
   .date {
     font-size: 11px;
     color: var(--muted);
@@ -179,11 +193,10 @@
 
   <footer>
     <p>
-      An inversion: instead of grinding toward one answer, this treats arriving
-      at a tidy answer as the signal it's asking the wrong thing — so when the
-      answer stagnates, it rewrites the question instead. The
-      <a href="https://github.com/whatgwan/question.computer/blob/main/loop.py">loop is open source</a>.
-      The bug and the feature are the same mechanism.
+      An inversion: instead of grinding toward one answer, it treats arriving at
+      a tidy answer as a sign it's asking the wrong question — so when the answer
+      stagnates, it rewrites the question. The bug and the feature are the same
+      mechanism. (The <a href="https://github.com/whatgwan/question.computer/blob/main/loop.py">loop is open source</a>.)
     </p>
   </footer>
 </main>
@@ -193,6 +206,22 @@
     const d = document.createElement("div");
     d.textContent = s == null ? "" : String(s);
     return d.innerHTML;
+  }
+
+  // Type the answer out one character at a time (textContent, so it's XSS-safe).
+  // Respects reduced-motion by showing it instantly.
+  function typeWriter(el, text) {
+    if (!el) return;
+    text = text || "";
+    if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.textContent = text;
+      return;
+    }
+    let i = 0;
+    (function tick() {
+      el.textContent = text.slice(0, i);
+      if (i++ < text.length) setTimeout(tick, 22);
+    })();
   }
 
   function renderFunding(data) {
@@ -236,10 +265,11 @@
       document.getElementById("today").innerHTML =
         '<p class="label">Today\'s findings</p>' +
         '<p class="question">' + esc(latest.question) + '</p>' +
-        '<p class="answer">' + esc(latest.answer) + '</p>' +
+        '<p class="answer"><span class="typed"></span><span class="cursor" aria-hidden="true"></span></p>' +
         '<p class="date">' + esc(latest.date) +
         (latest.reframed ? ' &middot; <span class="reframed">question reframed</span>' : '') +
         '</p>';
+      typeWriter(document.querySelector("#today .typed"), latest.answer);
 
       const past = entries.slice(0, -1).reverse();
       const historyEl = document.getElementById("history");
