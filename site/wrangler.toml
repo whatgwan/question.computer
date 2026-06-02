@@ -30,6 +30,7 @@ MODEL = "claude-opus-4-8"
 SEED_QUESTION = "What is the meaning of life, the universe, and everything?"
 DAILY_COST = "0.01"
 BALANCE = "5"            # prepaid API credit (USD) — the runway shown on the page
+BALANCE_SINCE = "2026-06-02"  # date the balance was set; runway counts down from here
 DONATE_URL = "https://ko-fi.com/questioncomputer"
 # Git backup of the full archive (the data is the point — keep it durable).
 GITHUB_REPO = "whatgwan/question.computer"
