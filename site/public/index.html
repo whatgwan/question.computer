@@ -152,7 +152,7 @@
   </header>
 
   <section class="today" id="today">
-    <p class="label">Today's answer</p>
+    <p class="label">Today's findings</p>
     <p class="empty">Loading…</p>
   </section>
 
@@ -228,13 +228,13 @@
       const entries = data.entries || [];
       if (!entries.length) {
         document.getElementById("today").innerHTML =
-          '<p class="label">Today\'s answer</p><p class="empty">No answers yet.</p>';
+          '<p class="label">Today\'s findings</p><p class="empty">No answers yet.</p>';
         return;
       }
 
       const latest = entries[entries.length - 1];
       document.getElementById("today").innerHTML =
-        '<p class="label">Today\'s answer</p>' +
+        '<p class="label">Today\'s findings</p>' +
         '<p class="question">' + esc(latest.question) + '</p>' +
         '<p class="answer">' + esc(latest.answer) + '</p>' +
         '<p class="date">' + esc(latest.date) +
@@ -300,7 +300,7 @@
     })
     .catch(() => {
       document.getElementById("today").innerHTML =
-        '<p class="label">Today\'s answer</p><p class="empty">Could not load data.json.</p>';
+        '<p class="label">Today\'s findings</p><p class="empty">Could not load data.json.</p>';
     });
 </script>
 </body>
