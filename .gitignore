@@ -6,3 +6,7 @@ data.json
 node_modules/
 .dev.vars
 *.log
+
+# Python
+__pycache__/
+*.pyc

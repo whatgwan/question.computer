@@ -75,8 +75,9 @@ def load_state() -> dict:
     return {
         "current_question": SEED,
         "dailyCost": 0.01,
-        "donations": 0,
-        "donateUrl": "https://ko-fi.com/YOUR_HANDLE",
+        "balance": 5,  # USD of prepaid API credit — the runway
+        "balanceSince": date.today().isoformat(),
+        "donateUrl": "https://ko-fi.com/questioncomputer",
         "entries": [],
     }
 

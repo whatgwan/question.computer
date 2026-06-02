@@ -162,12 +162,12 @@
         <p class="v" id="cost">—</p>
       </div>
       <div class="stat">
-        <p class="k">Donated</p>
-        <p class="v" id="donated">—</p>
+        <p class="k">Runway</p>
+        <p class="v" id="runway-stat">—</p>
       </div>
     </div>
     <p class="runway" id="runway"></p>
-    <a class="donate" id="donate" href="https://ko-fi.com/YOUR_HANDLE">Fund the question</a>
+    <a class="donate" id="donate" href="https://ko-fi.com/questioncomputer">Fund the question</a>
   </section>
 
   <footer>
@@ -190,22 +190,23 @@
 
   function renderFunding(data) {
     const dailyCost = Number(data.dailyCost);
-    const donated = Number(data.donations);
-    if (!isFinite(dailyCost) || dailyCost <= 0 || !isFinite(donated)) return;
+    const balance = Number(data.balance);
+    if (!isFinite(dailyCost) || dailyCost <= 0 || !isFinite(balance)) return;
 
     const fmt = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
-    const yearlyCost = dailyCost * 365;
-    document.getElementById("cost").textContent = "~" + fmt.format(yearlyCost) + "/year";
-    document.getElementById("donated").textContent = fmt.format(donated);
+    document.getElementById("cost").textContent = "~" + fmt.format(dailyCost * 365) + "/year";
 
-    const daysFunded = donated / dailyCost;
-    const fundedUntil = new Date();
-    fundedUntil.setDate(fundedUntil.getDate() + Math.floor(daysFunded));
-    const year = fundedUntil.getFullYear();
+    // Runway counts down from the date the balance was last set.
+    const since = data.balanceSince ? new Date(data.balanceSince + "T00:00:00Z") : new Date();
+    const end = new Date(since);
+    end.setDate(end.getDate() + Math.floor(balance / dailyCost));
+    const daysLeft = Math.max(0, Math.round((end - new Date()) / 86400000));
 
+    document.getElementById("runway-stat").textContent =
+      daysLeft > 0 ? daysLeft.toLocaleString() + " days" : "—";
     document.getElementById("runway").textContent =
-      donated > 0
-        ? "The universe is funded until the year " + year + "."
+      daysLeft > 0
+        ? "The universe is funded until the year " + end.getFullYear() + "."
         : "The universe is currently running on goodwill.";
 
     if (data.donateUrl) document.getElementById("donate").href = data.donateUrl;

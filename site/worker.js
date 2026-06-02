@@ -20,7 +20,8 @@ const DEFAULTS = {
   model: "claude-opus-4-8",
   seed: "What is the meaning of life, the universe, and everything?",
   dailyCost: 0.01,
-  donateUrl: "https://ko-fi.com/YOUR_HANDLE",
+  balance: 5, // USD of prepaid API credit — the runway. Bump it when you top up.
+  donateUrl: "https://ko-fi.com/questioncomputer",
   // Durable backup of the full archive. The daily cycle commits the whole
   // state here so the history survives even if the KV namespace is lost.
   githubRepo: "whatgwan/question.computer",
@@ -40,7 +41,8 @@ async function loadState(env) {
   return {
     current_question: env.SEED_QUESTION || DEFAULTS.seed,
     dailyCost: Number(env.DAILY_COST) || DEFAULTS.dailyCost,
-    donations: 0,
+    balance: Number(env.BALANCE) || DEFAULTS.balance,
+    balanceSince: new Date().toISOString().slice(0, 10), // runway clock start
     donateUrl: env.DONATE_URL || DEFAULTS.donateUrl,
     entries: [],
   };

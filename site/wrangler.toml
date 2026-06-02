@@ -17,7 +17,7 @@ crons = ["0 8 * * *"]
 # then paste the returned id below.
 [[kv_namespaces]]
 binding = "STATE"
-id = "PASTE_YOUR_KV_NAMESPACE_ID_HERE"
+id = "cdae162d51e642b5a1ac4cc3c5b2d1f9"
 
 # Non-secret config. The API key is NOT here — set it as a secret:
 #   wrangler secret put ANTHROPIC_API_KEY
@@ -29,7 +29,8 @@ id = "PASTE_YOUR_KV_NAMESPACE_ID_HERE"
 MODEL = "claude-opus-4-8"
 SEED_QUESTION = "What is the meaning of life, the universe, and everything?"
 DAILY_COST = "0.01"
-DONATE_URL = "https://ko-fi.com/YOUR_HANDLE"
+BALANCE = "5"            # prepaid API credit (USD) — the runway shown on the page
+DONATE_URL = "https://ko-fi.com/questioncomputer"
 # Git backup of the full archive (the data is the point — keep it durable).
 GITHUB_REPO = "whatgwan/question.computer"
 GITHUB_BRANCH = "main"
