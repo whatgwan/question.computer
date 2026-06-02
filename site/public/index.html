@@ -38,7 +38,12 @@
   header p {
     color: var(--muted);
     font-size: 13px;
-    margin: 0 0 3rem;
+    margin: 0 0 0.4rem;
+  }
+  header p.cadence {
+    font-size: 12px;
+    margin-bottom: 3rem;
+    opacity: 0.85;
   }
   .today {
     border: 0.5px solid var(--border);
@@ -143,6 +148,7 @@
   <header>
     <h1>Deep Thought Inversion</h1>
     <p>It got the answer years ago. It's been working on the question ever since.</p>
+    <p class="cadence">It thinks once a day.</p>
   </header>
 
   <section class="today" id="today">
