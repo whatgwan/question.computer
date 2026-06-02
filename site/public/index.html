@@ -208,22 +208,6 @@
     return d.innerHTML;
   }
 
-  // Type the answer out one character at a time (textContent, so it's XSS-safe).
-  // Respects reduced-motion by showing it instantly.
-  function typeWriter(el, text) {
-    if (!el) return;
-    text = text || "";
-    if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      el.textContent = text;
-      return;
-    }
-    let i = 0;
-    (function tick() {
-      el.textContent = text.slice(0, i);
-      if (i++ < text.length) setTimeout(tick, 22);
-    })();
-  }
-
   function renderFunding(data) {
     const dailyCost = Number(data.dailyCost);
     const balance = Number(data.balance);
@@ -265,11 +249,10 @@
       document.getElementById("today").innerHTML =
         '<p class="label">Today\'s findings</p>' +
         '<p class="question">' + esc(latest.question) + '</p>' +
-        '<p class="answer"><span class="typed"></span><span class="cursor" aria-hidden="true"></span></p>' +
+        '<p class="answer"><span class="typed">' + esc(latest.answer) + '</span><span class="cursor" aria-hidden="true"></span></p>' +
         '<p class="date">' + esc(latest.date) +
         (latest.reframed ? ' &middot; <span class="reframed">question reframed</span>' : '') +
         '</p>';
-      typeWriter(document.querySelector("#today .typed"), latest.answer);
 
       const past = entries.slice(0, -1).reverse();
       const historyEl = document.getElementById("history");
