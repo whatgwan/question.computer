@@ -1,0 +1,8 @@
+# Local Python reference output
+data.json
+
+# Wrangler / node
+.wrangler/
+node_modules/
+.dev.vars
+*.log

@@ -1,0 +1,36 @@
+name = "question-computer"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+# Static assets: everything in public/ is served by Cloudflare's CDN.
+# index.html is the page. The Worker only runs when its code calls
+# env.ASSETS.fetch() or for the routes it handles itself (/data.json, /run).
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
+# Daily cron — 08:00 UTC. Adjust to taste.
+[triggers]
+crons = ["0 8 * * *"]
+
+# State store. Create once:  wrangler kv namespace create STATE
+# then paste the returned id below.
+[[kv_namespaces]]
+binding = "STATE"
+id = "PASTE_YOUR_KV_NAMESPACE_ID_HERE"
+
+# Non-secret config. The API key is NOT here — set it as a secret:
+#   wrangler secret put ANTHROPIC_API_KEY
+# Optional manual-test token:  wrangler secret put RUN_TOKEN
+# Durable archive backup — set a GitHub token with contents:write on the repo:
+#   wrangler secret put GITHUB_TOKEN
+[vars]
+# Latest / most capable model (undated alias = newest snapshot of this version).
+MODEL = "claude-opus-4-8"
+SEED_QUESTION = "What is the meaning of life, the universe, and everything?"
+DAILY_COST = "0.01"
+DONATE_URL = "https://ko-fi.com/YOUR_HANDLE"
+# Git backup of the full archive (the data is the point — keep it durable).
+GITHUB_REPO = "whatgwan/question.computer"
+GITHUB_BRANCH = "main"
+GITHUB_PATH = "data/state.json"

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Deep Thought Inversion</title>
+<style>
+  :root {
+    --bg: #0f0f0e;
+    --surface: #1a1a18;
+    --border: rgba(255,255,255,0.12);
+    --text: #ecebe4;
+    --muted: #8a8a82;
+    --accent: #5dcaa5;
+    --font: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 6rem;
+  }
+  header h1 {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0 0 0.25rem;
+    letter-spacing: 0.5px;
+  }
+  header p {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 0 0 3rem;
+  }
+  .today {
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    padding: 2rem 1.75rem;
+    margin-bottom: 3rem;
+  }
+  .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    margin: 0 0 0.75rem;
+  }
+  .question {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0 0 1.25rem;
+  }
+  .answer {
+    font-size: 19px;
+    margin: 0;
+  }
+  .date {
+    font-size: 11px;
+    color: var(--muted);
+    margin: 1.5rem 0 0;
+  }
+  .history-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    margin: 0 0 1rem;
+  }
+  .stats {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 1.5rem;
+  }
+  .stats b { color: var(--text); font-weight: 500; }
+  .era {
+    border-top: 0.5px solid var(--border);
+    padding: 1.25rem 0;
+  }
+  .era-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    cursor: pointer;
+    list-style: none;
+  }
+  .era-head::-webkit-details-marker { display: none; }
+  .era-head .marker { color: var(--muted); font-size: 11px; width: 0.8rem; flex: none; }
+  .era-q { font-size: 15px; margin: 0; flex: 1; }
+  .era-meta { font-size: 11px; color: var(--muted); white-space: nowrap; }
+  .era-answers { margin: 1rem 0 0 1.55rem; }
+  .ans {
+    border-left: 0.5px solid var(--border);
+    padding: 0 0 0 1rem;
+    margin: 0 0 1rem;
+  }
+  .ans:last-child { margin-bottom: 0; }
+  .ans .d { font-size: 11px; color: var(--muted); margin: 0 0 0.3rem; }
+  .ans .a { font-size: 14px; margin: 0; }
+  .reframed { color: var(--accent); }
+  .funding {
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    padding: 1.5rem 1.5rem;
+    margin: 3rem 0 0;
+  }
+  .funding .rows { display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 0 0 1rem; }
+  .funding .stat .k { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); margin: 0 0 0.3rem; }
+  .funding .stat .v { font-size: 18px; margin: 0; }
+  .funding .runway { font-size: 14px; color: var(--accent); margin: 0 0 1.25rem; }
+  .donate {
+    display: inline-block;
+    border: 0.5px solid var(--accent);
+    border-radius: 8px;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 0.5rem 1.1rem;
+    font-size: 13px;
+  }
+  .donate:hover { background: rgba(93,202,165,0.08); }
+  footer {
+    margin-top: 4rem;
+    font-size: 12px;
+    color: var(--muted);
+    border-top: 0.5px solid var(--border);
+    padding-top: 1.5rem;
+  }
+  footer a { color: var(--accent); }
+  .empty { color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Deep Thought Inversion</h1>
+    <p>It got the answer years ago. It's been working on the question ever since.</p>
+  </header>
+
+  <section class="today" id="today">
+    <p class="label">Today's answer</p>
+    <p class="empty">Loading…</p>
+  </section>
+
+  <section>
+    <p class="history-label">Previously</p>
+    <p class="stats" id="stats" hidden></p>
+    <div id="history"></div>
+  </section>
+
+  <section class="funding" id="funding" hidden>
+    <div class="rows">
+      <div class="stat">
+        <p class="k">Running cost</p>
+        <p class="v" id="cost">—</p>
+      </div>
+      <div class="stat">
+        <p class="k">Donated</p>
+        <p class="v" id="donated">—</p>
+      </div>
+    </div>
+    <p class="runway" id="runway"></p>
+    <a class="donate" id="donate" href="https://ko-fi.com/YOUR_HANDLE">Fund the question</a>
+  </section>
+
+  <footer>
+    <p>
+      An inversion: instead of grinding toward one answer, this treats arriving
+      at a tidy answer as the signal it's asking the wrong thing — so when the
+      answer stagnates, it rewrites the question instead. The
+      <a href="https://github.com/whatgwan/question.computer/blob/main/loop.py">loop is open source</a>.
+      The bug and the feature are the same mechanism.
+    </p>
+  </footer>
+</main>
+
+<script>
+  function esc(s) {
+    const d = document.createElement("div");
+    d.textContent = s == null ? "" : String(s);
+    return d.innerHTML;
+  }
+
+  function renderFunding(data) {
+    const dailyCost = Number(data.dailyCost);
+    const donated = Number(data.donations);
+    if (!isFinite(dailyCost) || dailyCost <= 0 || !isFinite(donated)) return;
+
+    const fmt = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
+    const yearlyCost = dailyCost * 365;
+    document.getElementById("cost").textContent = "~" + fmt.format(yearlyCost) + "/year";
+    document.getElementById("donated").textContent = fmt.format(donated);
+
+    const daysFunded = donated / dailyCost;
+    const fundedUntil = new Date();
+    fundedUntil.setDate(fundedUntil.getDate() + Math.floor(daysFunded));
+    const year = fundedUntil.getFullYear();
+
+    document.getElementById("runway").textContent =
+      donated > 0
+        ? "The universe is funded until the year " + year + "."
+        : "The universe is currently running on goodwill.";
+
+    if (data.donateUrl) document.getElementById("donate").href = data.donateUrl;
+    document.getElementById("funding").hidden = false;
+  }
+
+  fetch("data.json?t=" + Date.now())
+    .then(r => r.json())
+    .then(data => {
+      renderFunding(data);
+
+      const entries = data.entries || [];
+      if (!entries.length) {
+        document.getElementById("today").innerHTML =
+          '<p class="label">Today\'s answer</p><p class="empty">No answers yet.</p>';
+        return;
+      }
+
+      const latest = entries[entries.length - 1];
+      document.getElementById("today").innerHTML =
+        '<p class="label">Today\'s answer</p>' +
+        '<p class="question">' + esc(latest.question) + '</p>' +
+        '<p class="answer">' + esc(latest.answer) + '</p>' +
+        '<p class="date">' + esc(latest.date) +
+        (latest.reframed ? ' &middot; <span class="reframed">question reframed</span>' : '') +
+        '</p>';
+
+      const past = entries.slice(0, -1).reverse();
+      const historyEl = document.getElementById("history");
+
+      if (!past.length) {
+        historyEl.innerHTML = '<p class="empty">Nothing yet.</p>';
+      } else {
+        const eras = [];
+        past.forEach(e => {
+          const last = eras[eras.length - 1];
+          if (last && last.question === e.question) {
+            last.answers.push(e);
+          } else {
+            eras.push({ question: e.question, answers: [e] });
+          }
+        });
+
+        historyEl.innerHTML = eras.map((era, i) => {
+          const open = i === 0 ? " open" : "";
+          const n = era.answers.length;
+          const newest = era.answers[0].date;
+          const oldest = era.answers[n - 1].date;
+          const range = n === 1 ? newest : oldest + " – " + newest;
+          const meta = n + (n === 1 ? " answer" : " answers") + " &middot; " + range;
+          const answers = era.answers.map(a =>
+            '<div class="ans">' +
+            '<p class="d">' + esc(a.date) +
+            (a.reframed ? ' &middot; <span class="reframed">reframed here</span>' : '') + '</p>' +
+            '<p class="a">' + esc(a.answer) + '</p>' +
+            '</div>'
+          ).join("");
+          return '<details class="era"' + open + '>' +
+            '<summary class="era-head">' +
+            '<span class="marker">▸</span>' +
+            '<p class="era-q">' + esc(era.question) + '</p>' +
+            '<span class="era-meta">' + meta + '</span>' +
+            '</summary>' +
+            '<div class="era-answers">' + answers + '</div>' +
+            '</details>';
+        }).join("");
+
+        document.querySelectorAll(".era").forEach(d => {
+          const m = d.querySelector(".marker");
+          const sync = () => { m.textContent = d.open ? "▾" : "▸"; };
+          sync();
+          d.addEventListener("toggle", sync);
+        });
+      }
+
+      const questionsAsked = new Set(entries.map(e => e.question)).size;
+      const reframes = entries.filter(e => e.reframed).length;
+      const statsEl = document.getElementById("stats");
+      statsEl.innerHTML =
+        "<b>" + entries.length + "</b> answers &middot; " +
+        "<b>" + questionsAsked + "</b> questions asked &middot; " +
+        "<b>" + reframes + "</b> reframes";
+      statsEl.hidden = false;
+    })
+    .catch(() => {
+      document.getElementById("today").innerHTML =
+        '<p class="label">Today\'s answer</p><p class="empty">Could not load data.json.</p>';
+    });
+</script>
+</body>
+</html>
