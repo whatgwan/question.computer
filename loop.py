@@ -38,11 +38,7 @@ def ask(prompt: str, max_tokens: int) -> str:
 
 
 def deep_thought(q: str) -> str:
-    return ask(
-        "Answer this in a single sentence. If it has no real answer, say so "
-        "plainly rather than padding:\n\n" + q,
-        120,
-    )
+    return ask("Answer in a single sentence:\n\n" + q, 120)
 
 
 def reframe(q: str, stale: str) -> str:

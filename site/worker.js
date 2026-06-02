@@ -40,7 +40,7 @@ async function runCycle(env) {
 
 // Ask the question — one honest sentence, no padding.
 const deepThought = (env, q) =>
-  askModel(env, "Answer this in a single sentence. If it has no real answer, say so plainly rather than padding:\n\n" + q, 120);
+  askModel(env, "Answer in a single sentence:\n\n" + q, 120);
 
 // The inversion: a stale answer means the question is wrong, so rewrite it.
 const reframe = (env, q, stale) =>
