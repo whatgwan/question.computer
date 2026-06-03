@@ -73,7 +73,6 @@ def load_state() -> dict:
         "dailyCost": 0.01,
         "balance": 5,  # USD of prepaid API credit — the runway
         "balanceSince": date.today().isoformat(),
-        "donateUrl": "https://ko-fi.com/questioncomputer",
         "entries": [],
     }
 

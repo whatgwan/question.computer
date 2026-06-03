@@ -4,7 +4,6 @@
  * A static page (public/index.html) is served by Cloudflare's CDN. This Worker
  * only does the thinking:
  *   GET /data.json    -> current state (+ display config) as JSON
- *   GET /run?key=...  -> run one cycle now (needs the RUN_TOKEN secret)
  *   cron (daily)      -> run one cycle
  *   anything else     -> the static page
  *
@@ -161,7 +160,6 @@ const displayConfig = (env) => ({
   dailyCost: Number(env.DAILY_COST),
   balance: Number(env.BALANCE),
   balanceSince: env.BALANCE_SINCE,
-  donateUrl: env.DONATE_URL,
 });
 
 
@@ -178,14 +176,6 @@ export default {
     if (url.pathname === "/data.json") {
       const state = await loadState(env);
       return json({ ...state, ...displayConfig(env) }, { "cache-control": "no-store" });
-    }
-
-    if (url.pathname === "/run") {
-      if (!env.RUN_TOKEN || url.searchParams.get("key") !== env.RUN_TOKEN) {
-        return new Response("forbidden", { status: 403 });
-      }
-      const data = await runCycle(env);
-      return json(data.entries.at(-1), {}, 2);
     }
 
     return env.ASSETS.fetch(request); // the static page

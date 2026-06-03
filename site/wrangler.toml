@@ -9,9 +9,9 @@ compatibility_date = "2026-01-01"
 directory = "./public"
 binding = "ASSETS"
 
-# Daily cron — 08:00 UTC. Adjust to taste.
+# Daily cron — 09:00 AEST (UTC+10), i.e. 23:00 UTC the previous day.
 [triggers]
-crons = ["0 8 * * *"]
+crons = ["0 23 * * *"]
 
 # State store. Create once:  wrangler kv namespace create STATE
 # then paste the returned id below.
@@ -21,7 +21,6 @@ id = "cdae162d51e642b5a1ac4cc3c5b2d1f9"
 
 # Non-secret config. The API key is NOT here — set it as a secret:
 #   wrangler secret put ANTHROPIC_API_KEY
-# Optional manual-test token:  wrangler secret put RUN_TOKEN
 # Durable archive backup — set a GitHub token with contents:write on the repo:
 #   wrangler secret put GITHUB_TOKEN
 [vars]
@@ -31,7 +30,6 @@ SEED_QUESTION = "What is the meaning of life, the universe, and everything?"
 DAILY_COST = "0.01"
 BALANCE = "5"            # prepaid API credit (USD) — the runway shown on the page
 BALANCE_SINCE = "2026-06-02"  # date the balance was set; runway counts down from here
-DONATE_URL = "https://ko-fi.com/questioncomputer"
 # Git backup of the full archive (the data is the point — keep it durable).
 GITHUB_REPO = "whatgwan/question.computer"
 GITHUB_BRANCH = "main"

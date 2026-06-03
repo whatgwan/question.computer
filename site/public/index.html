@@ -167,17 +167,7 @@
   .funding .rows { display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 0 0 1rem; }
   .funding .stat .k { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); margin: 0 0 0.3rem; }
   .funding .stat .v { font-size: 18px; margin: 0; }
-  .funding .runway { font-size: 14px; color: var(--accent); margin: 0 0 1.25rem; }
-  .donate {
-    display: inline-block;
-    border: 0.5px solid var(--accent);
-    border-radius: 8px;
-    color: var(--accent);
-    text-decoration: none;
-    padding: 0.5rem 1.1rem;
-    font-size: 13px;
-  }
-  .donate:hover { background: rgba(93,202,165,0.08); }
+  .funding .runway { font-size: 14px; color: var(--accent); margin: 0; }
   footer {
     margin-top: 4rem;
     font-size: 12px;
@@ -225,7 +215,6 @@
       </div>
     </div>
     <p class="runway" id="runway"></p>
-    <a class="donate" id="donate" href="https://ko-fi.com/questioncomputer">Fund the question</a>
   </section>
 
   <footer>
@@ -266,7 +255,6 @@
         ? "The universe is funded until the year " + end.getFullYear() + "."
         : "The universe is currently running on goodwill.";
 
-    if (data.donateUrl) document.getElementById("donate").href = data.donateUrl;
     document.getElementById("funding").hidden = false;
   }
 
