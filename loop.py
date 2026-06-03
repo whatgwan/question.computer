@@ -51,12 +51,29 @@ def reframe(q: str, stale: str) -> str:
     )
 
 
-def has_stagnated(answer: str, prev: str, threshold: float = 0.6) -> bool:
-    cleaned = re.sub(r"\.+$", "", answer.strip()).lower()
-    if cleaned == "42" or cleaned in ("there is none", "none", "nothing"):
+# Filler words that say nothing about an answer's substance — ignored when comparing.
+STOP = set(
+    ("a an the and or but of to in on at for with as is are was were be been being it its this "
+     "that these those there here than then so such not no nor only just very more most can could "
+     "may might will would should about into over under from by").split())
+
+
+def content_words(s: str) -> set:
+    """Reduce an answer to its content words: lowercase, drop punctuation and stopwords."""
+    toks = re.sub(r"[^a-z0-9\s]", " ", s.lower()).split()
+    return {w for w in toks if w and w not in STOP}
+
+
+def has_stagnated(answer: str, prev: str, threshold: float = 0.35) -> bool:
+    # Stagnated = it returned the joke / a punt (in any wording), or it substantially
+    # recycles the previous answer's content words. Lexical only — meaning-blind, so a
+    # genuinely fresh answer rides; the question only reframes once answers start circling.
+    flat = re.sub(r"\s+", " ", re.sub(r"[^a-z0-9\s]", " ", answer.lower())).strip()
+    if (re.search(r"\b42\b", flat) or flat in ("none", "nothing")
+            or "there is none" in flat or "there is no answer" in flat):
         return True
-    wa = {w for w in answer.lower().split() if w}
-    wb = {w for w in prev.lower().split() if w}
+    wa = content_words(answer)
+    wb = content_words(prev)
     if not wa or not wb:
         return False
     return len(wa & wb) / len(wa | wb) > threshold

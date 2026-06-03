@@ -48,16 +48,29 @@ const reframe = (env, q, stale) =>
     "'. Rewrite the question from a completely different angle — a different discipline, scale, or framing — " +
     "so it can't collapse the same way. Return ONLY the new question, nothing else.", 80);
 
-// Stagnated = collapsed to a tidy non-answer, or barely changed from yesterday.
-function hasStagnated(answer, prev, threshold = 0.6) {
-  const cleaned = answer.trim().replace(/\.+$/, "").toLowerCase();
-  if (cleaned === "42" || ["there is none", "none", "nothing"].includes(cleaned)) return true;
-  const wa = new Set(answer.toLowerCase().split(/\s+/).filter(Boolean));
-  const wb = new Set(prev.toLowerCase().split(/\s+/).filter(Boolean));
+// Filler words that say nothing about an answer's substance — ignored when comparing.
+const STOP = new Set(
+  ("a an the and or but of to in on at for with as is are was were be been being it its this " +
+   "that these those there here than then so such not no nor only just very more most can could " +
+   "may might will would should about into over under from by").split(" "));
+
+// Reduce an answer to its set of content words: lowercase, drop punctuation and stopwords.
+const contentWords = (s) =>
+  new Set(s.toLowerCase().replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter(w => w && !STOP.has(w)));
+
+// Stagnated = it returned the joke / a punt (in any wording), or it substantially
+// recycles the previous answer's content words. Lexical only — meaning-blind, so a
+// genuinely fresh answer rides; the question only reframes once answers start circling.
+function hasStagnated(answer, prev, threshold = 0.35) {
+  const flat = answer.toLowerCase().replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
+  if (/\b42\b/.test(flat) || ["none", "nothing"].includes(flat) ||
+      flat.includes("there is none") || flat.includes("there is no answer")) return true;
+  const wa = contentWords(answer);
+  const wb = contentWords(prev);
   if (!wa.size || !wb.size) return false;
   let inter = 0;
   for (const w of wa) if (wb.has(w)) inter++;
-  return inter / new Set([...wa, ...wb]).size > threshold; // Jaccard word overlap
+  return inter / new Set([...wa, ...wb]).size > threshold; // Jaccard on content words
 }
 
 const today = () => new Date().toISOString().slice(0, 10);
