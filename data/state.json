@@ -1,5 +1,5 @@
 {
-  "current_question": "What is the meaning of life, the universe, and everything?",
+  "current_question": "What chemical and thermodynamic conditions on early Earth made the transition from non-living matter to self-replicating life possible, and could those same conditions arise elsewhere?",
   "entries": [
     {
       "date": "2026-06-02",
@@ -12,6 +12,12 @@
       "question": "What is the meaning of life, the universe, and everything?",
       "answer": "The answer is 42, a humorous response from Douglas Adams' *The Hitchhiker's Guide to the Galaxy*, suggesting that the question itself may be more meaningful than any definitive answer.",
       "reframed": false
+    },
+    {
+      "date": "2026-06-03",
+      "question": "What is the meaning of life, the universe, and everything?",
+      "answer": "The answer is 42, according to Douglas Adams's *The Hitchhiker's Guide to the Galaxy*, though the joke is that no one actually knows what the question was.",
+      "reframed": true
     }
   ]
 }
