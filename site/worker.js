@@ -73,7 +73,10 @@ function hasStagnated(answer, prev, threshold = 0.35) {
   return inter / new Set([...wa, ...wb]).size > threshold; // Jaccard on content words
 }
 
-const today = () => new Date().toISOString().slice(0, 10);
+// Date the run by Sydney's calendar day, not UTC — the 9am-AEST cron fires at
+// 23:00 UTC the day before, so a UTC stamp would read a day behind. en-CA gives
+// YYYY-MM-DD, and the IANA zone tracks AEST/AEDT automatically.
+const today = () => new Date().toLocaleDateString("en-CA", { timeZone: "Australia/Sydney" });
 
 
 /* ─────────────────────────────── Model ─────────────────────────────── */

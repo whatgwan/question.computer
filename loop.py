@@ -15,10 +15,15 @@ entry to data.json next to this file.
 import json
 import os
 import re
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 from anthropic import Anthropic
+
+# Date runs by Sydney's calendar day (matches the 9am-AEST cron), not UTC.
+SYDNEY = ZoneInfo("Australia/Sydney")
+today = lambda: datetime.now(SYDNEY).date().isoformat()
 
 # Latest / most capable model (undated alias = newest snapshot of this version).
 MODEL = os.environ.get("MODEL", "claude-opus-4-8")
@@ -108,7 +113,7 @@ def run_cycle() -> dict:
         reframed = True
 
     entries.append({
-        "date": date.today().isoformat(),
+        "date": today(),
         "question": question,
         "answer": answer,
         "reframed": reframed,
