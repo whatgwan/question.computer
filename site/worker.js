@@ -37,9 +37,11 @@ async function runCycle(env) {
   return next;
 }
 
-// Ask the question — one honest sentence, no padding.
+// Ask the question — one honest sentence, no padding. The cap is generous
+// enough that a detailed single sentence finishes rather than truncating
+// mid-word; the "single sentence" instruction is what actually keeps it short.
 const deepThought = (env, q) =>
-  askModel(env, "Answer in a single sentence:\n\n" + q, 120);
+  askModel(env, "Answer in a single sentence:\n\n" + q, 300);
 
 // The inversion: a stale answer means the question is wrong, so rewrite it.
 const reframe = (env, q, stale) =>

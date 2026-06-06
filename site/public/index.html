@@ -100,7 +100,11 @@
     font-size: 19px;
     margin: 0;
     min-height: 1.7em;
+    overflow-wrap: anywhere;
   }
+  /* Long answers shrink so a paragraph fits the card the way "42" did. */
+  .answer.long { font-size: 16px; }
+  .answer.xlong { font-size: 14px; line-height: 1.6; }
   .answer .typed { text-shadow: 0 0 14px rgba(93, 202, 165, 0.18); }
   .cursor {
     display: inline-block;
@@ -271,9 +275,11 @@
       }
 
       const latest = entries[entries.length - 1];
+      const len = (latest.answer || "").length;
+      const sizeClass = len > 220 ? " xlong" : len > 110 ? " long" : "";
       document.getElementById("today-body").innerHTML =
         '<p class="cmd"><span class="prompt">$</span>question-computer --ask "' + esc(latest.question) + '"</p>' +
-        '<p class="answer"><span class="typed">' + esc(latest.answer) + '</span></p>' +
+        '<p class="answer' + sizeClass + '"><span class="typed">' + esc(latest.answer) + '</span></p>' +
         '<p class="cmd"><span class="prompt">$</span><span class="cursor" aria-hidden="true"></span></p>' +
         '<p class="date">' + esc(latest.date) +
         (latest.reframed ? ' &middot; <span class="reframed">question reframed</span>' : '') +
