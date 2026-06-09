@@ -48,6 +48,12 @@
       "question": "What chemical and thermodynamic conditions on early Earth made the transition from non-living matter to self-replicating life possible, and could those same conditions arise elsewhere?",
       "answer": "Early life likely emerged where energy-rich chemical disequilibria (such as the proton and redox gradients at alkaline hydrothermal vents) met reactive precursor molecules and catalytic mineral surfaces under conditions far from thermodynamic equilibrium, allowing dissipative chemical systems to harness free energy to build and replicate complex organic structures—and because such gradients, simple feedstock chemicals, and liquid water are common features of rocky, water-bearing worlds throughout the cosmos, these same conditions could plausibly arise elsewhere, though whether they reliably cross the threshold into life remains unknown.",
       "reframed": false
+    },
+    {
+      "date": "2026-06-10",
+      "question": "What chemical and thermodynamic conditions on early Earth made the transition from non-living matter to self-replicating life possible, and could those same conditions arise elsewhere?",
+      "answer": "The transition from non-living matter to self-replicating life was likely made possible by a combination of liquid water, abundant simple precursor molecules (like CO₂, methane, ammonia, and hydrogen), energy gradients (from sources such as hydrothermal vents, UV radiation, or lightning), and thermodynamic disequilibrium that allowed energy-dissipating chemical reactions to drive the formation and selection of increasingly complex, self-organizing molecular systems—conditions that, being based on common cosmic ingredients and universal physical laws, could plausibly arise on other planets or moons with similar environments.",
+      "reframed": false
     }
   ]
 }
