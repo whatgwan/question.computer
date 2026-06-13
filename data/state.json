@@ -1,5 +1,5 @@
 {
-  "current_question": "What chemical and thermodynamic conditions on early Earth made the transition from non-living matter to self-replicating life possible, and could those same conditions arise elsewhere?",
+  "current_question": "When a chemist in a lab successfully builds a self-replicating molecular system from scratch, what specific historical and causal information about Earth's actual origin of life does that achievement fail to recover—and how would we ever distinguish the path life *did* take from the many",
   "entries": [
     {
       "date": "2026-06-02",
@@ -72,6 +72,12 @@
       "question": "What chemical and thermodynamic conditions on early Earth made the transition from non-living matter to self-replicating life possible, and could those same conditions arise elsewhere?",
       "answer": "Early Earth likely enabled life's emergence through a combination of liquid water, abundant simple carbon and nitrogen compounds, energy gradients (from sources like hydrothermal vents, UV radiation, or lightning), and thermodynamic disequilibrium that allowed energy-dissipating chemical reactions to build and sustain increasingly complex, self-replicating molecules—and since these ingredients and conditions are not unique to Earth, they could plausibly arise on other planets or moons with similar chemistry and energy sources.",
       "reframed": false
+    },
+    {
+      "date": "2026-06-14",
+      "question": "What chemical and thermodynamic conditions on early Earth made the transition from non-living matter to self-replicating life possible, and could those same conditions arise elsewhere?",
+      "answer": "The transition from non-living matter to self-replicating life likely required a combination of available energy gradients (such as those at hydrothermal vents or from UV radiation and lightning), liquid water as a solvent, abundant carbon-based building blocks (amino acids, nucleotides, lipids), and thermodynamic disequilibrium that allowed energy to flow through and organize matter into increasingly complex, self-sustaining chemical systems—and since these conditions depend only on common elements, energy sources, and physical laws found throughout the universe, they could plausibly arise on other planets and moons with similar environments.",
+      "reframed": true
     }
   ]
 }
