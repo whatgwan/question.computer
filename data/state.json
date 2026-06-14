@@ -78,6 +78,12 @@
       "question": "What chemical and thermodynamic conditions on early Earth made the transition from non-living matter to self-replicating life possible, and could those same conditions arise elsewhere?",
       "answer": "The transition from non-living matter to self-replicating life likely required a combination of available energy gradients (such as those at hydrothermal vents or from UV radiation and lightning), liquid water as a solvent, abundant carbon-based building blocks (amino acids, nucleotides, lipids), and thermodynamic disequilibrium that allowed energy to flow through and organize matter into increasingly complex, self-sustaining chemical systems—and since these conditions depend only on common elements, energy sources, and physical laws found throughout the universe, they could plausibly arise on other planets and moons with similar environments.",
       "reframed": true
+    },
+    {
+      "date": "2026-06-15",
+      "question": "When a chemist in a lab successfully builds a self-replicating molecular system from scratch, what specific historical and causal information about Earth's actual origin of life does that achievement fail to recover—and how would we ever distinguish the path life *did* take from the many",
+      "answer": "Building a self-replicating molecular system in the lab would demonstrate only that *a* chemically plausible pathway to life exists, but it would fail to recover the actual contingent historical facts—the specific molecules, environmental conditions (e.g., hydrothermal vents vs. tidal pools), sequence of steps, and timing—that characterized Earth's singular origin event, and we could likely never definitively distinguish the path life *did* take from other viable paths because that ancient chemical record has been almost entirely erased by billions of years of geological and biological overwriting, leaving us reliant on indirect, underdetermining clues like conserved biochemical \"molecular fossils\" that constrain but cannot uniquely identify the true history.",
+      "reframed": false
     }
   ]
 }
