@@ -90,6 +90,12 @@
       "question": "When a chemist in a lab successfully builds a self-replicating molecular system from scratch, what specific historical and causal information about Earth's actual origin of life does that achievement fail to recover—and how would we ever distinguish the path life *did* take from the many",
       "answer": "Building a self-replicating molecular system in the lab demonstrates only that *a* viable chemical pathway to life exists, but it fails to recover the specific historical contingencies of Earth's actual origin—the particular molecules, environmental conditions, sequence of steps, and timing that occurred roughly 4 billion years ago—and we likely could never definitively distinguish the path life *actually* took from other chemically plausible paths because the direct physical evidence has been erased by deep time, geological recycling, and the overwriting effects of subsequent evolution, leaving us able to constrain but never uniquely confirm the true historical route.",
       "reframed": true
+    },
+    {
+      "date": "2026-06-17",
+      "question": "If we sequenced and compared the deepest branches of every surviving lineage's molecular machinery—the ribosome, the genetic code's quirks, chirality choices, core metabolic loops—what frozen \"accidents\" would these universal features encode as readable",
+      "answer": "These universal features would encode the frozen accidents of LUCA's particular biochemistry—the otherwise arbitrary choices of left-handed amino acids and right-handed sugars, the specific (and slightly redundant, error-buffering) assignments of the near-universal genetic code, the RNA-based core of the ribosome's peptidyl transferase center hinting at an RNA World ancestry, and the conserved reliance on ATP, certain metal cofactors, and core metabolic cycles—all preserved not because they are uniquely optimal but because they became too deeply entangled in everything downstream to ever be revised.",
+      "reframed": false
     }
   ]
 }
