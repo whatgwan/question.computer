@@ -96,6 +96,12 @@
       "question": "If we sequenced and compared the deepest branches of every surviving lineage's molecular machinery—the ribosome, the genetic code's quirks, chirality choices, core metabolic loops—what frozen \"accidents\" would these universal features encode as readable",
       "answer": "These universal features would encode the frozen accidents of LUCA's particular biochemistry—the otherwise arbitrary choices of left-handed amino acids and right-handed sugars, the specific (and slightly redundant, error-buffering) assignments of the near-universal genetic code, the RNA-based core of the ribosome's peptidyl transferase center hinting at an RNA World ancestry, and the conserved reliance on ATP, certain metal cofactors, and core metabolic cycles—all preserved not because they are uniquely optimal but because they became too deeply entangled in everything downstream to ever be revised.",
       "reframed": false
+    },
+    {
+      "date": "2026-06-18",
+      "question": "If we sequenced and compared the deepest branches of every surviving lineage's molecular machinery—the ribosome, the genetic code's quirks, chirality choices, core metabolic loops—what frozen \"accidents\" would these universal features encode as readable",
+      "answer": "These universal features would encode the frozen accidents of LUCA—the Last Universal Common Ancestor—revealing arbitrary \"decisions\" like the homochirality of life (L-amino acids and D-sugars), the specific and largely non-functional-yet-conserved assignments of the genetic code (such as why UGG uniquely codes for tryptophan), the RNA-based catalytic core of the ribosome that betrays an ancient RNA World predating proteins, and the particular handedness of core metabolic loops like the Krebs cycle, all of which became permanently locked in not because they were optimal but because they were inherited too early and too deeply to ever be revised without catastrophic failure.",
+      "reframed": false
     }
   ]
 }
