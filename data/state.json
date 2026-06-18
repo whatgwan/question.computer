@@ -1,5 +1,5 @@
 {
-  "current_question": "If we sequenced and compared the deepest branches of every surviving lineage's molecular machinery—the ribosome, the genetic code's quirks, chirality choices, core metabolic loops—what frozen \"accidents\" would these universal features encode as readable",
+  "current_question": "When a programmer inherits a sprawling codebase that no one dares refactor—where a misspelled variable name from 1987 propagates through ten thousand files and a bizarre off-by-one convention survives only because rewriting it would break everything—what would a for",
   "entries": [
     {
       "date": "2026-06-02",
@@ -102,6 +102,12 @@
       "question": "If we sequenced and compared the deepest branches of every surviving lineage's molecular machinery—the ribosome, the genetic code's quirks, chirality choices, core metabolic loops—what frozen \"accidents\" would these universal features encode as readable",
       "answer": "These universal features would encode the frozen accidents of LUCA—the Last Universal Common Ancestor—revealing arbitrary \"decisions\" like the homochirality of life (L-amino acids and D-sugars), the specific and largely non-functional-yet-conserved assignments of the genetic code (such as why UGG uniquely codes for tryptophan), the RNA-based catalytic core of the ribosome that betrays an ancient RNA World predating proteins, and the particular handedness of core metabolic loops like the Krebs cycle, all of which became permanently locked in not because they were optimal but because they were inherited too early and too deeply to ever be revised without catastrophic failure.",
       "reframed": false
+    },
+    {
+      "date": "2026-06-19",
+      "question": "If we sequenced and compared the deepest branches of every surviving lineage's molecular machinery—the ribosome, the genetic code's quirks, chirality choices, core metabolic loops—what frozen \"accidents\" would these universal features encode as readable",
+      "answer": "These deeply conserved features would encode a handful of \"frozen accidents\" from the Last Universal Common Ancestor (LUCA) and earlier, most notably the near-universal homochirality of life (L-amino acids and D-sugars), the largely arbitrary yet near-invariant codon assignments of the genetic code (which could have mapped triplets to amino acids differently), the specific set of ~20 canonical amino acids chosen from a much larger possible chemical repertoire, the catalytic RNA core of the ribosome (a fossil hinting that RNA preceded protein-based catalysis), and certain core metabolic motifs like the citric acid cycle and chemiosmotic ATP synthesis—all of which appear \"locked in\" not because they were optimal, but because they became too deeply entangled with everything downstream to ever be revised once life diversified.",
+      "reframed": true
     }
   ]
 }
