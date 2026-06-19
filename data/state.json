@@ -108,6 +108,12 @@
       "question": "If we sequenced and compared the deepest branches of every surviving lineage's molecular machinery—the ribosome, the genetic code's quirks, chirality choices, core metabolic loops—what frozen \"accidents\" would these universal features encode as readable",
       "answer": "These deeply conserved features would encode a handful of \"frozen accidents\" from the Last Universal Common Ancestor (LUCA) and earlier, most notably the near-universal homochirality of life (L-amino acids and D-sugars), the largely arbitrary yet near-invariant codon assignments of the genetic code (which could have mapped triplets to amino acids differently), the specific set of ~20 canonical amino acids chosen from a much larger possible chemical repertoire, the catalytic RNA core of the ribosome (a fossil hinting that RNA preceded protein-based catalysis), and certain core metabolic motifs like the citric acid cycle and chemiosmotic ATP synthesis—all of which appear \"locked in\" not because they were optimal, but because they became too deeply entangled with everything downstream to ever be revised once life diversified.",
       "reframed": true
+    },
+    {
+      "date": "2026-06-20",
+      "question": "When a programmer inherits a sprawling codebase that no one dares refactor—where a misspelled variable name from 1987 propagates through ten thousand files and a bizarre off-by-one convention survives only because rewriting it would break everything—what would a for",
+      "answer": "A misspelled variable or quirky off-by-one convention frozen across a vast codebase is the software equivalent of a vestigial trait—a frozen accident preserved not because it's optimal, but because the cost of unwinding its deeply entangled dependencies now vastly outweighs the cost of simply living with it.",
+      "reframed": false
     }
   ]
 }
