@@ -114,6 +114,12 @@
       "question": "When a programmer inherits a sprawling codebase that no one dares refactor—where a misspelled variable name from 1987 propagates through ten thousand files and a bizarre off-by-one convention survives only because rewriting it would break everything—what would a for",
       "answer": "A misspelled variable or quirky off-by-one convention frozen across a vast codebase is the software equivalent of a vestigial trait—a frozen accident preserved not because it's optimal, but because the cost of unwinding its deeply entangled dependencies now vastly outweighs the cost of simply living with it.",
       "reframed": false
+    },
+    {
+      "date": "2026-06-21",
+      "question": "When a programmer inherits a sprawling codebase that no one dares refactor—where a misspelled variable name from 1987 propagates through ten thousand files and a bizarre off-by-one convention survives only because rewriting it would break everything—what would a for",
+      "answer": "When a programmer inherits such a codebase, the analogous concept from biology is **vestigial structures** (or \"developmental constraints\" / \"frozen accident\"), where evolution—like the programmer—cannot freely redesign from scratch but must build upon inherited legacy code, preserving ancient quirks (like the wiring of the vertebrate eye's blind spot or the recurrent laryngeal nerve's absurd detour) simply because every existing organism depends on them and any radical rewrite would be lethal.",
+      "reframed": false
     }
   ]
 }
