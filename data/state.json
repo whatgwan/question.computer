@@ -126,6 +126,12 @@
       "question": "When a programmer inherits a sprawling codebase that no one dares refactor—where a misspelled variable name from 1987 propagates through ten thousand files and a bizarre off-by-one convention survives only because rewriting it would break everything—what would a for",
       "answer": "Such legacy code is the software equivalent of a fossil record, where every quirk, misspelling, and off-by-one convention is a preserved trace of past decisions that survives not because it's correct but because it has become load-bearing—a frozen accident calcified into infrastructure that's now too costly to disturb.",
       "reframed": false
+    },
+    {
+      "date": "2026-06-23",
+      "question": "When a programmer inherits a sprawling codebase that no one dares refactor—where a misspelled variable name from 1987 propagates through ten thousand files and a bizarre off-by-one convention survives only because rewriting it would break everything—what would a for",
+      "answer": "A programmer inheriting such a codebase would call it \"legacy code\"—or, more pointedly, \"technical debt,\" \"cruft,\" or a \"big ball of mud\"—while the deeper phenomenon at work, where arbitrary historical accidents become permanently entrenched because the cost of changing them exceeds any benefit, is known as \"path dependence\" (or \"lock-in\").",
+      "reframed": false
     }
   ]
 }
