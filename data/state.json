@@ -132,6 +132,12 @@
       "question": "When a programmer inherits a sprawling codebase that no one dares refactor—where a misspelled variable name from 1987 propagates through ten thousand files and a bizarre off-by-one convention survives only because rewriting it would break everything—what would a for",
       "answer": "A programmer inheriting such a codebase would call it \"legacy code\"—or, more pointedly, \"technical debt,\" \"cruft,\" or a \"big ball of mud\"—while the deeper phenomenon at work, where arbitrary historical accidents become permanently entrenched because the cost of changing them exceeds any benefit, is known as \"path dependence\" (or \"lock-in\").",
       "reframed": false
+    },
+    {
+      "date": "2026-06-24",
+      "question": "When a programmer inherits a sprawling codebase that no one dares refactor—where a misspelled variable name from 1987 propagates through ten thousand files and a bizarre off-by-one convention survives only because rewriting it would break everything—what would a for",
+      "answer": "A sprawling, untouchable codebase is a fossilized record of every past decision—where a 1987 typo and an absurd off-by-one rule survive not because they're correct but because they've become load-bearing, proving that in any sufficiently entrenched system, history outweighs reason and the cost of fixing the past eventually exceeds the cost of perpetuating its mistakes.",
+      "reframed": false
     }
   ]
 }
