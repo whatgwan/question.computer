@@ -1,5 +1,5 @@
 {
-  "current_question": "When a programmer inherits a sprawling codebase that no one dares refactor—where a misspelled variable name from 1987 propagates through ten thousand files and a bizarre off-by-one convention survives only because rewriting it would break everything—what would a for",
+  "current_question": "In constitutional law, when a court upholds a clearly erroneous precedent because overturning it would unravel decades of subsequent rulings built atop it, what does the doctrine of stare decisis reveal about whether a legal system's stability is grounded in tru",
   "entries": [
     {
       "date": "2026-06-02",
@@ -138,6 +138,12 @@
       "question": "When a programmer inherits a sprawling codebase that no one dares refactor—where a misspelled variable name from 1987 propagates through ten thousand files and a bizarre off-by-one convention survives only because rewriting it would break everything—what would a for",
       "answer": "A sprawling, untouchable codebase is a fossilized record of every past decision—where a 1987 typo and an absurd off-by-one rule survive not because they're correct but because they've become load-bearing, proving that in any sufficiently entrenched system, history outweighs reason and the cost of fixing the past eventually exceeds the cost of perpetuating its mistakes.",
       "reframed": false
+    },
+    {
+      "date": "2026-06-25",
+      "question": "When a programmer inherits a sprawling codebase that no one dares refactor—where a misspelled variable name from 1987 propagates through ten thousand files and a bizarre off-by-one convention survives only because rewriting it would break everything—what would a for",
+      "answer": "A sprawling, untouchable codebase is **technical debt calcified into law**—where a 1987 typo and a backwards off-by-one rule survive not because they're correct, but because they've become load-bearing fictions that everything silently depends on, making the cost of fixing them exceed the cost of perpetuating them forever.",
+      "reframed": true
     }
   ]
 }
