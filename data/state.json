@@ -156,6 +156,12 @@
       "question": "In constitutional law, when a court upholds a clearly erroneous precedent because overturning it would unravel decades of subsequent rulings built atop it, what does the doctrine of stare decisis reveal about whether a legal system's stability is grounded in tru",
       "answer": "The doctrine of stare decisis reveals that a legal system's stability is grounded not in the truth or correctness of its foundational rulings but in institutional continuity and reliance—that is, in the social and practical consequences of consistency rather than in the substantive accuracy of the underlying legal propositions.",
       "reframed": true
+    },
+    {
+      "date": "2026-06-28",
+      "question": "When a single mutation becomes essential not because it's beneficial but because thousands of later adaptations have evolved to depend on it, what does this \"frozen accident\" in evolutionary biology tell us about whether complex systems are locked in by fitness or merely by",
+      "answer": "A \"frozen accident\" reveals that complex systems can be locked in not by ongoing fitness advantages but by the sheer weight of historical contingency—where countless dependent adaptations make reversal prohibitively costly, demonstrating that lock-in often reflects entrenchment through accumulated dependency rather than continued optimality.",
+      "reframed": false
     }
   ]
 }
