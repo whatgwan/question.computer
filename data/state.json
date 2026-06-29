@@ -168,6 +168,12 @@
       "question": "When a single mutation becomes essential not because it's beneficial but because thousands of later adaptations have evolved to depend on it, what does this \"frozen accident\" in evolutionary biology tell us about whether complex systems are locked in by fitness or merely by",
       "answer": "A \"frozen accident\" reveals that complex systems can be locked in not by ongoing fitness advantages but by historical contingency and entrenchment, where countless dependent adaptations make reversal prohibitively costly even if the original feature was arbitrary or no longer optimal.",
       "reframed": true
+    },
+    {
+      "date": "2026-06-30",
+      "question": "When a programming language's quirky early syntax choice—say, zero-indexed arrays or null-terminated strings—becomes immovable not through technical merit but because billions of lines of code and generations of trained engineers now presuppose it, at what point does a standard",
+      "answer": "Such a standard transitions from a description of practice to a self-perpetuating constraint at the moment its continuation is justified primarily by the cost of departing from it rather than by any intrinsic advantage—that is, when compatibility with the installed base of code and trained minds becomes the reason for the rule rather than a consequence of its merit.",
+      "reframed": false
     }
   ]
 }
