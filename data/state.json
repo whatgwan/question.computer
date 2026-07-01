@@ -180,6 +180,12 @@
       "question": "When a programming language's quirky early syntax choice—say, zero-indexed arrays or null-terminated strings—becomes immovable not through technical merit but because billions of lines of code and generations of trained engineers now presuppose it, at what point does a standard",
       "answer": "A standard ceases to be a mere convention and becomes infrastructure precisely when the cost of changing it—measured not in technical effort but in retraining minds, rewriting dependencies, and rupturing the shared assumptions that let strangers collaborate—exceeds the cost of perpetuating its flaws, at which point it is held in place less by its own correctness than by the accumulated weight of everything built atop it.",
       "reframed": false
+    },
+    {
+      "date": "2026-07-02",
+      "question": "When a programming language's quirky early syntax choice—say, zero-indexed arrays or null-terminated strings—becomes immovable not through technical merit but because billions of lines of code and generations of trained engineers now presuppose it, at what point does a standard",
+      "answer": "A standard stops being a description of good design and becomes a form of infrastructure—effectively a law of the built environment—at the point where the cost of coordinated change exceeds the cost of perpetuating the flaw, meaning it is no longer chosen for its merit but obeyed because too much of the world is already balanced upon it.",
+      "reframed": false
     }
   ]
 }
